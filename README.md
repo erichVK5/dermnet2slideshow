@@ -32,7 +32,9 @@ which can be used at the root level of the locally cloned website, to facilitate
 at this point we are one step away from creating larger images which embed the original image, and a text label below it. First, we create a local directory in the root level of the locally cloned website to put the labelled images into
 
 cd dermnet_nz.org
+
 cp ../distilled_data.txt .
+
 mkdir modified
 
 you then compile the java image labelling utility as follows:
