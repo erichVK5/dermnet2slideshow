@@ -29,16 +29,20 @@ public class labelImages {
 			newImage.setRGB(i+origWidth,j,image.getRGB(i,j));
 		}
 	}
-    	Graphics g = newImage.getGraphics();
-    	g.setFont(g.getFont().deriveFont(30f));
+	Graphics g = newImage.getGraphics();
+	g.setFont(g.getFont().deriveFont(30f));
 	int currentTextYCoord = origHeight*2 - 35;
-    	g.drawString(imageLabel, 10, currentTextYCoord);
-        String newFile = currentImage.getName();
+	g.drawString(imageLabel, 10, currentTextYCoord);
+	String newFile = currentImage.getName();
 	int index = newFile.indexOf("__Protect");
 	String truncatedFilename = newFile.substring(0,index);
 	currentTextYCoord -= 35;
 	g.drawString(truncatedFilename, 10, currentTextYCoord);
-    	g.dispose();
+	index = imageFile.indexOf(truncatedFilename);
+	String pathToImage = imageFile.substring(0,index);
+	currentTextYCoord -= 35;
+	g.drawString(pathToImage, 10, currentTextYCoord);
+	g.dispose();
 	ImageIO.write(newImage, "png", new File("modified/" + newFile + ".png"));
 	counter++;
 	if (false && counter > 300) {
