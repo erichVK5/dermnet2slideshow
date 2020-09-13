@@ -3,7 +3,7 @@ convert images from a batch downloaded website into a labelled slideshow for sta
 
 Given a web site with a library of images embedded in HTML for teaching purposes, you might prefer to dispense with the browser and create a local directory of the same images with labels, to allow a simple slideshow.
 
-This repository contains a set of bash shell scripts that employ the sed and grep utilities and awk to pre-process the cloned website data, which then allows a simple java utility to embed the downloaded images into a larger images that include two text labels below the image The labels consist of the file name, and the 'alt' text label from the HTML which embeds the image. The scripts attempt to exclude content that is not related to the teaching content.
+This repository contains a set of bash shell scripts that employ the sed and grep utilities and awk to pre-process the cloned website data, which then allows a simple java utility to embed the downloaded image into a larger image that includes three text labels below the image. The labels consist of 1) the poath to the file, 2) the file name, and 3) the 'alt' text label from the HTML which embeds the image. The scripts attempt to exclude content that is not related to the teaching content.
 
 From a purely hypothetical standpoint, you might have a dermatology website with 9GB of data available via wget, within which there are only 2.2GB of actual images. The rest is endlessly repetitive wrappers and boilerplate HTML code, mixed in with a bit of javascript. The text information that contains the labels for the images would come to about 3MB, hypothetically.
 
