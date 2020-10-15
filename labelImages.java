@@ -16,7 +16,10 @@ public class labelImages {
     while (imagesAndLabels.hasNextLine()) {
 	String[] data = imagesAndLabels.nextLine().split("@");
 	String imageFile = data[0];
-	String imageLabel = data[1];
+	String imageLabel = imageFile.split("_")[0];
+	if (data.length > 1) {
+		imageLabel = data[1];
+	}
 	// weed out most of pathology sections here
 	boolean HistoPathologyImage = (imageFile.contains("pathology")
 		&& !imageFile.contains("blaschko"));
@@ -65,7 +68,10 @@ public class labelImages {
         	} else if (newFile.endsWith(".JPEG") || newFile.endsWith(".jpeg")) {
         	                newFile = newFile.substring(0,newFile.length()-5);
         	}
-		ImageIO.write(newImage, "png", new File("modified/" + newFile + ".png"));
+		File output = new File("modified/" + newFile + ".png");
+		if (!output.exists()) {
+			ImageIO.write(newImage, "png", output);
+		}
 		counter++;
 		if (false && counter > 300) {
 			break;
